@@ -2,16 +2,16 @@ Resumen y Conclusion del Analisis
 
 **EXPLORACION GENERAL**
 
-**¿Cuál es la edad promedio?** <br>
+- **¿Cuál es la edad promedio?** <br>
 Respuesta: El promedio de edad es 56 Años<br>
 
-**¿Cuántos casos hay de cada resultado (positive, negative)?** <br>
+- **¿Cuántos casos hay de cada resultado (positive, negative)?** <br>
 Respuesta: 810 casos positivos y 509 casoS Negativos <br>
 ![Casos por Diagnostico](https://github.com/user-attachments/assets/59023102-a28f-43b9-b5fe-6b01b5431a2e)
 
-Podemos observar que se registran mas casos positivos (810) que negativos (509), lo que demuestra que hay una mayor frecuencia de diagnostivos positivos en los resultados
+Podemos observar que se registran mas casos positivos (810) que negativos (509), lo que demuestra que hay una mayor frecuencia de diagnostivos positivos en los resultados<br>
 <br>
-**¿Qué rango tiene el ritmo cardíaco?** <br>
+- **¿Qué rango tiene el ritmo cardíaco?** <br>
 Respuesta: El rango del ritmo cardiaco es de 20-135 <br>
 
 **VISUALIZACIONES**<br>
