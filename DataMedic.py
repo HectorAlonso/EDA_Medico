@@ -166,3 +166,46 @@ plt.tight_layout()
 plt.xticks(rotation=0)
 
 plt.show()
+
+# ! 6- CLASIFICACION DE RIESGO -----------------------------------------------------
+
+def clasificar_riesgos(fila):
+    cantidad_de_riesgos = 0
+
+    if fila['Troponin'] > 0.5:
+        cantidad_de_riesgos = cantidad_de_riesgos + 1
+    if fila['CK-MB'] > 10:
+        cantidad_de_riesgos = cantidad_de_riesgos + 1
+    if fila['Blood sugar'] > 250:
+        cantidad_de_riesgos = cantidad_de_riesgos + 1
+
+    if cantidad_de_riesgos >= 2:
+        return 'Alta'
+    elif cantidad_de_riesgos == 1:
+        return 'Media'
+    else:
+        return 'Baja'
+    
+
+datos["Riesgo"] = datos.apply(clasificar_riesgos, axis=1)
+
+# ? Cuantos pacientes hay en cada nivel de riesgo. ---------------------------------
+
+PacientesPorRiesgo = datos['Riesgo'].value_counts()
+
+coloresRiesgo = ["#187919","#d8c41f","#d81f1f"]
+etiquetasRiesgo = ["Baja","Media","Alta"]
+
+plt.bar(etiquetasRiesgo,PacientesPorRiesgo, color = coloresRiesgo)
+
+for i, valor in enumerate(PacientesPorRiesgo):
+    plt.text(i, valor + 1, str(valor), ha='center')
+
+plt.title('Cantidad de Pacientes en Riesgo de Infarto')
+plt.xlabel('Nivel de Riesgo')
+plt.ylabel('Cantidad de Pacientes')
+plt.grid(axis='y', color='gray', linestyle='--', alpha=0.5)
+plt.tight_layout()
+plt.xticks(rotation=0)
+
+plt.show()
