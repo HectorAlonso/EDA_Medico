@@ -209,3 +209,7 @@ plt.tight_layout()
 plt.xticks(rotation=0)
 
 plt.show()
+
+
+# ! Exportar el nuevo archivo CSV
+datos.to_csv("MedicalDataSet2.csv")
