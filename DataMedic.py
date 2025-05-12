@@ -75,3 +75,37 @@ plt.legend(title='Diagnostico')
 plt.tight_layout()
 plt.xticks(rotation=0)
 plt.show()
+
+# ! 4- RELACIONES ENTRE VARIABLES --------------------------------------------------------
+
+# ? Checar si existe una correlación entre CK-MB y Tropinina -----------------------------
+
+x=datos['CK-MB']
+y=datos['Troponin']
+
+plt.scatter(x,y)
+
+plt.title('Relacion entre Enzima CK-MB y Troponina')
+plt.xlabel('Troponina')
+plt.ylabel('Enzima CK-MB')
+plt.grid(color='green', linestyle='--', alpha=0.3)
+plt.show()
+
+# ? Comparacion del promedio de glucosa entre pacientes positivos y negativos -----------
+
+promedios = datos.groupby('Result')['Blood sugar'].mean()
+promedios = promedios.round(2)
+
+promedios.plot(kind='bar', figsize=(8,6))
+
+for i, valor in enumerate(promedios):
+    plt.text(i, valor + 1, str(valor), ha='center')
+
+
+plt.title('Promedio de Glucosa por Diagnostico')
+plt.xlabel('Diagnostico')
+plt.ylabel('Promedio de Glucosa')
+plt.grid(axis='y', color='gray', linestyle='--', alpha=0.5)
+plt.tight_layout()
+plt.xticks(rotation=0) 
+plt.show()
