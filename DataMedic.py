@@ -109,3 +109,60 @@ plt.grid(axis='y', color='gray', linestyle='--', alpha=0.5)
 plt.tight_layout()
 plt.xticks(rotation=0) 
 plt.show()
+
+# ! 5- ANÁLISIS POR GENERO ------------------------------------------------------------
+
+# ? Que porcentaje de pacientes son hombres y mujeres ---------------------------------
+
+porcentajes = datos['Gender'].value_counts(normalize=True) *100
+colores = ["#0d54ec","#ec800d"]
+Generos = ["Hombres", "Mujeres"]
+desfase = (0, 0.1)
+
+plt.pie(porcentajes, labels=Generos, autopct='%1.1f%%',colors=colores, explode=desfase, startangle=90)
+
+plt.title('Porcentajes de Hombres y Mujeres')
+plt.axis("equal")
+
+plt.show()
+
+# ? ¿Cuál género tiene más diagnósticos positivos? ------------------------------------
+
+diagPositivos = datos[datos['Result'] == 'positive']
+cantidadPorGenero = diagPositivos['Gender'].value_counts()
+colore = ["#85c1e9","#d7bde2"]
+Etiquetas = ['Hombres', 'Mujeres']
+
+plt.bar(Etiquetas,cantidadPorGenero, color = colore)
+
+for i, valor in enumerate(cantidadPorGenero):
+    plt.text(i, valor + 4, str(valor), ha='center')
+
+plt.title('Casos Positivos por Genero')
+plt.xlabel('Generos')
+plt.ylabel('Numero de Casos Positivos')
+plt.grid(axis='y', color='gray', linestyle='--', alpha=0.5)
+plt.tight_layout()
+plt.xticks(rotation=0)
+
+plt.show()
+
+# ? Compara el ritmo cardiaco promedio entre generos --------------------------------
+
+RitmoCardGeneros = datos.groupby('Gender')['Heart rate'].mean()
+RitmoCardGeneros = RitmoCardGeneros.round(2)
+color = ["#619cff","#f8766d"]
+
+plt.bar(Etiquetas,RitmoCardGeneros, color = color)
+
+for i, valor in enumerate(RitmoCardGeneros):
+    plt.text(i, valor + 1, str(valor), ha='center')
+
+plt.title('Ritmo Cardiaco Promedio por Genero')
+plt.xlabel('Generos')
+plt.ylabel('Promedio Ritmo Cardiaco')
+plt.grid(axis='y', color='gray', linestyle='--', alpha=0.5)
+plt.tight_layout()
+plt.xticks(rotation=0)
+
+plt.show()
