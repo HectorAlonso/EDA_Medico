@@ -1,4 +1,4 @@
-**Resumen y Conclusion del Analisis**
+**RESUMEN Y CONCLUSIÓN DEL ANÁLISIS**
 
 **EXPLORACION GENERAL**
 
